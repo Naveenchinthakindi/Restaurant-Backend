@@ -11,6 +11,6 @@ router.post("/updatePassword", checkAuth, updateUserPassword);
 
 router.post("/resetPassword", resetPassword);
 
-router.delete("/deleteUser/:id",checkAuth, deleteProfile)
+router.delete("/deleteUser/:id",checkAuth, deleteProfile);
 
 module.exports = router;

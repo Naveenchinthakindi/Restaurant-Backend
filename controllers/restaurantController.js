@@ -53,17 +53,85 @@ const createRestaurant = async (req, res) => {
 
 const getRestaurant = async (req, res) => {
   try {
-    const res = await Restaurant.find();
-    return res.status(200).json({ success: true, restuarant: res });
+    const restaurant = await Restaurant.find();
+    if (!restaurant) {
+      return res
+        .status(402)
+        .json({ success: false, message: "No Restaurant Available" });
+    }
+    return res.status(200).json({ success: true, restaurant });
   } catch (error) {
-    return res
+    return res.status(500).json({
+      success: false,
+      message: "fetch all restaurant error",
+      error: error.message,
+    });
+  }
+};
+
+const getRestaurantById = async (req, res) => {
+  try {
+    const restaurantId = req.params.id;
+
+    if (!restaurantId) {
+      return res
+        .status(402)
+        .json({ success: false, message: "Please provide the restaurant id" });
+    }
+
+    const restaurant = await Restaurant.findById(restaurantId);
+
+    if (!restaurant) {
+      return res
+        .status(402)
+        .json({ success: false, message: "no restaurant found" });
+    }
+
+    return res.status(200).json({ success: true, restaurant });
+  } catch (error) {
+    res
       .status(500)
       .json({
         success: false,
-        message: "fetch all restaurant error",
+        message: "Error in get restaurant by Id",
         error: error.message,
       });
   }
 };
 
-module.exports = { createRestaurant, getRestaurant };
+const deleteRestaurantById = async (req, res) => {
+  try {
+    const restaurantId = req.params.id;
+
+    if (!restaurantId) {
+      return res
+        .status(402)
+        .json({ success: false, message: "Please provide the restaurant id" });
+    }
+
+    const restaurant = await Restaurant.findByIdAndDelete(restaurantId);
+
+    if (!restaurant) {
+      return res
+        .status(402)
+        .json({ success: false, message: "no restaurant found" });
+    }
+
+    return res.status(200).json({ success: true, restaurant });
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Error in delete restaurant by id",
+        error: error.message,
+      });
+  }
+};
+
+module.exports = {
+  createRestaurant,
+  getRestaurant,
+  getRestaurantById,
+  deleteRestaurantById,
+};
