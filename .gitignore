@@ -1,3 +1,55 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
 .env
-node_modules
+
+# OS-specific files
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# IDE or Editor specific files
+.vscode/           # Visual Studio Code settings folder
+.idea/             # JetBrains IDE settings folder (e.g., WebStorm, IntelliJ)
+*.sublime-workspace # Sublime Text workspace
+*.sublime-project  # Sublime Text project file
+
+# Dependency directories
+jspm_packages/
+
+# Build output directories
+dist/
+build/
+tmp/
+temp/
+
+# Optional npm cache directory
+.npm/
+
+# Package lock files (if you don't want to track them)
 package-lock.json
+yarn.lock
+
+# TypeScript / JavaScript related
+*.tsbuildinfo       # TypeScript build information file
+*.d.ts              # TypeScript declaration files (if not needed)
+
+# Coverage output directory
+coverage/
+
+# Test output directories
+test-results/
+*.gcda
+*.gcno
+
+# Other unwanted files
+.vscode/*
+.idea/*
+*.iml
