@@ -32,15 +32,13 @@ const registerController = async (req, res) => {
       password: hashedPassword,
       phone,
       address,
-      answer
+      answer,
     });
 
     res
       .status(200)
       .send({ success: true, message: "Successfully Registered", user });
   } catch (error) {
-    console.error("User Create Error: ", error);
-    // res.status(500).json({ message: error.message });
     res
       .status(500)
       .send({ success: false, message: "Error in register api", error });
@@ -87,7 +85,6 @@ const loginController = async (req, res) => {
       token,
     });
   } catch (error) {
-    console.log("error ", error);
     return res.status(500).send({
       success: false,
       message: "User Login Error",

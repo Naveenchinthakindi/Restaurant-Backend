@@ -54,7 +54,6 @@ const createRestaurant = async (req, res) => {
 const getRestaurant = async (req, res) => {
   try {
     const restaurant = await Restaurant.find();
-    console.log("restaurant ",restaurant)
     if (!restaurant) {
       return res
         .status(402)

@@ -33,6 +33,7 @@ app.use("/api/user", userRoute);
 app.use("/api/restaurant", restaurantRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/food", foodRoute);
+
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
