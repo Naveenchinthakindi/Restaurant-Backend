@@ -39,7 +39,7 @@ Cloudinary / Local – Image storage (optional)
 
 🔧 Installation
 # Clone the repository
-git clone https://github.com/yourusername/restaurant-backend.git
+git clone git@github.com:Naveenchinthakindi/Restaurant-Backend.git
 
 cd restaurant-backend
 
