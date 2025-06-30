@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { getUserController, updateUserController, updateUserPassword, resetPassword, deleteProfile } = require("../controllers/userController");
-const { checkAuth } = require("../middlewears/authMiddleware");
+const { checkAuth } = require("../middleware/authMiddleware");
 
 router.get("/getUser", checkAuth, getUserController);
 

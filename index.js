@@ -7,6 +7,8 @@ const morgan = require("morgan");
 const authRoute = require("./routes/authRoute");
 const userRoute = require("./routes/userRoute");
 const restaurantRoute = require("./routes/restaurantRoute");
+const categoryRoute = require("./routes/categoryRoute");
+const foodRoute = require("./routes/foodRoute");
 const connectDb = require("./config/db");
 
 //rest object
@@ -26,9 +28,11 @@ app.get("/", (req, res) => {
   return res.status(200).send("<h1>Welcome to node js </h1>");
 });
 
-app.use("/api/auth",authRoute );
-app.use("/api/user",userRoute);
-app.use("/api/restaurant",restaurantRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
+app.use("/api/restaurant", restaurantRoute);
+app.use("/api/category", categoryRoute);
+app.use("/api/food", foodRoute);
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });

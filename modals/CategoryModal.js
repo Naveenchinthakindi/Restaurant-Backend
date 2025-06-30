@@ -9,8 +9,7 @@ const CategorySchema = new Schema(
     },
     imageUrl: {
       type: String,
-      default:
-        "https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png",
+      default:'https://img.freepik.com/free-vector/ecofood-logo-template_1195-33.jpg'
     },
   },
   { timestamps: true }

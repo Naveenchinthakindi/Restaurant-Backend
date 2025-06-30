@@ -13,9 +13,11 @@ const createCategory = async (req, res) => {
     const category = new Category({ title, imageUrl });
 
     await category.save();
+    console.log("category ",category)
 
-    return res.status(200), json({ success: true, category });
+    return res.status(200).json({ success: true, category });
   } catch (error) {
+    console.error("error ",error)
     return res.status(500).json({
       success: false,
       message: "create category api error ",
@@ -45,6 +47,7 @@ const getAllCategory = async (req, res) => {
 const updateCategory = async (req, res) => {
   try {
     const categoryId = req.params.id;
+    console.log("categoryId ",categoryId)
     const { title, imageUrl } = req.body;
 
     if (!categoryId) {
@@ -96,10 +99,9 @@ const deleteCategory = async (req, res) => {
         .json({ success: false, message: "category not found" });
     }
 
-    await Category.findByIdAndDelete({
-      success: true,
-      message: "category deleted successfully",
-    });
+    await Category.findByIdAndDelete(categoryId);
+
+    res.status(200).send({success:true, message:"category added successfully"})
   } catch (error) {
     return res
       .status(500)

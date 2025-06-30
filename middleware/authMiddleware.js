@@ -19,7 +19,6 @@ const checkAuth = async (req, res, next) => {
           .status(401)
           .json({ success: false, message: "Token is not valid", err: err });
       } else {
-        console.log("decode ", decode);
         req.userId = decode.id;
         next();
       }

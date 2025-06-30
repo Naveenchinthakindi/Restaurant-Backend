@@ -1,3 +1,4 @@
+// Restaurant
 // {
 //   "title": "Pizza Hut",
 //   "imageUrl": "https://www.zilliondesigns.com/blog/wp-content/uploads/Dominos-Pizza-logo-2.jpg",
